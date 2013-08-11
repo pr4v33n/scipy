@@ -2434,7 +2434,7 @@ def pearsonr(x, y):
 
     # Presumably, if abs(r) > 1, then it is only some small artifact of floating
     # point arithmetic.
-    r = max(min(r, 1.0), -1.0)
+    r = np.clip(r, -1.0, 1.0)
     df = n-2
     if abs(r) == 1.0:
         prob = 0.0
